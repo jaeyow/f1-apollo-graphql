@@ -1,0 +1,21 @@
+{
+  "name": "f1-apollo-graphql",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev:server": "nodemon server.js",
+    "json:server": "json-server --watch f1-2019-race-results.json",
+    "deploy-prod": "serverless --stage=production deploy"
+  },
+  "author": "Jose Reyes",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-server": "^2.12.0",
+    "apollo-server-lambda": "^2.12.0",
+    "axios": "^0.19.2",
+    "graphql": "^15.0.0",
+    "nodemon": "^2.0.3"
+  }
+}
