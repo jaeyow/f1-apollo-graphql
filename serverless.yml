@@ -1,6 +1,8 @@
 # serverless.yml
 
 service: f1-graphql-apollo
+app: f1-graphql-apollo
+org: jaeyow
 provider:
   name: aws
   runtime: nodejs12.x
