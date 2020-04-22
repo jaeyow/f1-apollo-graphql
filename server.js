@@ -1,8 +1,9 @@
 const { ApolloServer } = require('apollo-server');
-const schema = require('./schema');
+const typeDefs = require('./typedefs');
+const resolvers = require('./resolvers');
 
 // to run locally or on your EC2 instance
-const server = new ApolloServer({ schema });
+const server = new ApolloServer({ typeDefs, resolvers });
 
 server.listen().then(({ url }) => {
     console.log(`🚀  F1 GraphQL Server ready at ${url}`);

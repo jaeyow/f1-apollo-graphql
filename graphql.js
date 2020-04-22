@@ -1,7 +1,8 @@
 const { ApolloServer } = require('apollo-server-lambda');
-const schema = require('./schema');
+const typeDefs = require('./typedefs');
+const resolvers = require('./resolvers');
 
-const server = new ApolloServer({ schema });
+const server = new ApolloServer({ typeDefs, resolvers });
 
 // to run on your AWS Lambda (testing)
 exports.graphqlHandler = server.createHandler({

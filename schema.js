@@ -3,6 +3,7 @@ const axios = require('axios');
 const {
   GraphQLObjectType,
   GraphQLString,
+  GraphQLInt,
   GraphQLList,
   GraphQLSchema
 } = require('graphql');
@@ -29,6 +30,19 @@ const CircuitType = new GraphQLObjectType({
 
 const RaceType = new GraphQLObjectType({
   name: 'Race',
+  fields: () => ({
+    season: { type: GraphQLString },
+    round: { type: GraphQLString },
+    url:  { type: GraphQLString },
+    raceName: { type: GraphQLString },
+    Circuit: { type: CircuitType },
+    date: { type: GraphQLString },
+    time: { type: GraphQLString }
+  })
+});
+
+const ResultsType = new GraphQLObjectType({
+  name: 'Results',
   fields: () => ({
     season: { type: GraphQLString },
     round: { type: GraphQLString },
@@ -129,10 +143,49 @@ const RootQueryType = new GraphQLObjectType({
         const { season } = args;
         return axios
           // .get('http://localhost:3000/MRData') // the json-server mock data
-          .get(`http://ergast.com/api/f1/${season}/results.json?limit=420`) // Ergast Data
+          .get(`http://ergast.com/api/f1/${season}/races.json?limit=50`) // Ergast Data
           .then(res => {
             console.log(res.data.MRData.RaceTable.Races);
             return res.data.MRData.RaceTable.Races;
+          })
+          .catch(function (error) {
+            // handle error
+            console.log(error);
+          });
+      }
+    },
+    results: {
+      type: new GraphQLList(ResultsType),
+      args: {
+        season: { type: GraphQLString }
+      },
+      resolve(parent, args) {
+        const { season } = args;
+        return axios
+          .get(`http://ergast.com/api/f1/${season}/results.json?limit=100`) // Ergast Data
+          .then(res => {
+            console.log(res.data.MRData.RaceTable.Races.Results);
+            return res.data.MRData.RaceTable.Races.Results;
+          })
+          .catch(function (error) {
+            // handle error
+            console.log(error);
+          });
+      }
+    },
+    result: {
+      type: new GraphQLList(ResultType),
+      args: {
+        season: { type: GraphQLString },
+        limit: { type: GraphQLString }
+      },
+      resolve(parent, args) {
+        const { season, limit } = args;
+        return axios
+          .get(`http://ergast.com/api/f1/${season}/${parent.round}/results.json?limit=${limit}`) // Ergast Data
+          .then(res => {
+            console.log(res.data.MRData.RaceTable.Races.Results);
+            return res.data.MRData.RaceTable.Races.Results;
           })
           .catch(function (error) {
             // handle error
@@ -147,7 +200,8 @@ const RootQueryType = new GraphQLObjectType({
           .get('http://ergast.com/api/f1/seasons.json?limit=100')
           .then(res => {
             console.log(res.data.MRData.SeasonTable.Seasons);
-            return res.data.MRData.SeasonTable.Seasons;
+            return res.data.MRData.SeasonTable.Seasons
+              .sort((a, b) => (parseInt(a.season) > parseInt(b.season) ? -1 : 1));
           })
           .catch(function (error) {
             // handle error
