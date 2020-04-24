@@ -204,7 +204,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/f1-graphql-apollo/dev/1587589418329-2020-04-22T21:03:38.329Z/f1-graphql-apollo.zip"
+                "S3Key": "serverless/f1-graphql-apollo/dev/1587764583481-2020-04-24T21:43:03.481Z/f1-graphql-apollo.zip"
               },
               "FunctionName": "f1-graphql-apollo-dev-graphql",
               "Handler": "s_graphql.handler",
@@ -223,14 +223,14 @@
               "IamRoleLambdaExecution"
             ]
           },
-          "GraphqlLambdaVersionMFmrYFC7i6I7ojUqkbjqLZwEDr7aeYmzOxrFvu7Tw": {
+          "GraphqlLambdaVersionPFCEbIyGmaQxpyXV40L13UVz98Yoz9hV0HDXKKjBXs": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "GraphqlLambdaFunction"
               },
-              "CodeSha256": "7pqV4pzZ/zBotfsrTPD/U78on9Gxk4fg/ELL0cG6RUQ="
+              "CodeSha256": "vYpMHG8njmOzSYdN7M7IMHKSJm/xOFIEu2oIsDhX6XA="
             }
           },
           "ApiGatewayRestApi": {
@@ -391,7 +391,7 @@
               "MethodResponses": []
             }
           },
-          "ApiGatewayDeployment1587589408830": {
+          "ApiGatewayDeployment1587764574775": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -551,7 +551,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/f1-graphql-apollo/dev/1587589418329-2020-04-22T21:03:38.329Z/custom-resources.zip"
+                "S3Key": "serverless/f1-graphql-apollo/dev/1587764583481-2020-04-24T21:43:03.481Z/custom-resources.zip"
               },
               "FunctionName": "f1-graphql-apollo-dev-custom-resource-apigw-cw-role",
               "Handler": "apiGatewayCloudWatchRole/handler.handler",
@@ -607,7 +607,7 @@
           "GraphqlLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "GraphqlLambdaVersionMFmrYFC7i6I7ojUqkbjqLZwEDr7aeYmzOxrFvu7Tw"
+              "Ref": "GraphqlLambdaVersionPFCEbIyGmaQxpyXV40L13UVz98Yoz9hV0HDXKKjBXs"
             }
           },
           "ServiceEndpoint": {
@@ -776,7 +776,7 @@
         "timeout": 6,
         "runtime": "nodejs12.x",
         "vpc": {},
-        "versionLogicalId": "GraphqlLambdaVersionMFmrYFC7i6I7ojUqkbjqLZwEDr7aeYmzOxrFvu7Tw"
+        "versionLogicalId": "GraphqlLambdaVersionPFCEbIyGmaQxpyXV40L13UVz98Yoz9hV0HDXKKjBXs"
       }
     },
     "serviceFilename": "serverless.yml",
@@ -790,7 +790,7 @@
     "artifact": "/Users/josereyes/Dev/f1-apollo-graphql/.serverless/f1-graphql-apollo.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/f1-graphql-apollo/dev/1587589418329-2020-04-22T21:03:38.329Z",
+    "artifactDirectoryName": "serverless/f1-graphql-apollo/dev/1587764583481-2020-04-24T21:43:03.481Z",
     "artifact": "f1-graphql-apollo.zip"
   }
 }

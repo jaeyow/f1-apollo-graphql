@@ -86,10 +86,28 @@ const typeDefs = gql`
         results: [Result]
     }
 
+    type RaceResultV2 {
+        season: String
+        round: String
+        url:  String
+        raceName: String
+        Circuit: Circuit
+        date: String
+        time: String
+        Results: [Result]
+    }
+
+    type Season {
+        season: String
+        url: String
+    }
+
     type Query {
         results: [Result]
         races: [Race]
-        raceResults: [RaceResult]
+        raceResults(season: String!): [RaceResult]
+        raceResultsV2(season: String!): [RaceResultV2]
+        seasons: [Season]
     }
 `;
 
