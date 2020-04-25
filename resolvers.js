@@ -63,11 +63,17 @@ const resolvers = {
                 });
         },
         raceResultsV2(parent, args) {
-            const { season } = args;
+            const { season, resultsLimit } = args;
             return axios
                 .get(`http://ergast.com/api/f1/${season}/results.json?limit=1000`)
                 .then(res => {
-                    return res.data.MRData.RaceTable.Races;
+                    return res.data.MRData.RaceTable.Races.map((race) => {
+
+                        return({
+                            ...race,
+                            Results: race.Results.slice(0, resultsLimit || 1)
+                        });
+                    });
                 })
                 .catch(function (error) {
                     // handle error

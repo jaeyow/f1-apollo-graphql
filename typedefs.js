@@ -38,14 +38,14 @@ const typeDefs = gql`
     }
 
     type Result {
-        number: String
-        position: String
+        number: Int
+        position: Int
         positionText: String
-        points: String
+        points: Int
         Driver: Driver
         Constructor: Constructor
         grid: String
-        laps: String
+        laps: Int
         status: String
         Time: Time
         FastestLap: FastestLap
@@ -88,7 +88,7 @@ const typeDefs = gql`
 
     type RaceResultV2 {
         season: String
-        round: String
+        round: Int
         url:  String
         raceName: String
         Circuit: Circuit
@@ -106,7 +106,7 @@ const typeDefs = gql`
         results: [Result]
         races: [Race]
         raceResults(season: String!): [RaceResult]
-        raceResultsV2(season: String!): [RaceResultV2]
+        raceResultsV2(season: String!, resultsLimit: Int): [RaceResultV2]
         seasons: [Season]
     }
 `;
