@@ -30,11 +30,9 @@ const resolvers = {
             return axios
                 .get(`http://ergast.com/api/f1/2019/results.json?limit=5`)
                 .then(res => {
-                    // console.log(res.data.MRData.RaceTable.Races[0].Results);
                     return res.data.MRData.RaceTable.Races[0].Results;
                 })
                 .catch(function (error) {
-                    // handle error
                     console.log(`Error: ${error}`);
                 });
         },
@@ -42,11 +40,9 @@ const resolvers = {
             return axios
                 .get(`http://ergast.com/api/f1/2019.json`) // Ergast Data
                 .then(res => {
-                    // console.log(res.data.MRData.RaceTable.Races);
                     return res.data.MRData.RaceTable.Races;
                 })
                 .catch(function (error) {
-                    // handle error
                     console.log(error);
                 });
         },
@@ -58,7 +54,6 @@ const resolvers = {
                     return res.data.MRData.RaceTable.Races;
                 })
                 .catch(function (error) {
-                    // handle error
                     console.log(`Error: ${error}`);
                 });
         },
@@ -68,7 +63,6 @@ const resolvers = {
                 .get(`http://ergast.com/api/f1/${season}/results.json?limit=1000`)
                 .then(res => {
                     return res.data.MRData.RaceTable.Races.map((race) => {
-
                         return({
                             ...race,
                             Results: race.Results.slice(0, resultsLimit || 1)
@@ -76,7 +70,6 @@ const resolvers = {
                     });
                 })
                 .catch(function (error) {
-                    // handle error
                     console.log(`Error: ${error}`);
                 });
         },
@@ -88,7 +81,6 @@ const resolvers = {
                         .sort((a, b) => (parseInt(a.season) > parseInt(b.season) ? -1 : 1));
                 })
                 .catch(function (error) {
-                    // handle error
                     console.log(error);
                 });
         }
