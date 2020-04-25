@@ -71,7 +71,7 @@ const resolvers = {
                 })
                 .catch(function (error) {
                     // handle error
-                    console.log(`Error: ${error} `);
+                    console.log(`Error: ${error}`);
                 });
         },
         seasons() {
