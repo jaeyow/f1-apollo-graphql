@@ -41,7 +41,7 @@ const typeDefs = gql`
         number: Int
         position: Int
         positionText: String
-        points: Int
+        points: Float
         Driver: Driver
         Constructor: Constructor
         grid: String

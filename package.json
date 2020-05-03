@@ -6,8 +6,7 @@
   "scripts": {
     "start": "node server.js",
     "dev:server": "nodemon server.js",
-    "json:server": "json-server --watch f1-2019-race-results.json",
-    "deploy-prod": "serverless --stage=production deploy"
+    "deploy": "serverless deploy"
   },
   "author": "Jose Reyes",
   "license": "ISC",
