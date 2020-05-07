@@ -47,17 +47,6 @@ const resolvers = {
                 });
         },
         raceResults(parent, args) {
-            const { season } = args;
-            return axios
-                .get(`http://ergast.com/api/f1/${season}.json`)
-                .then(res => {
-                    return res.data.MRData.RaceTable.Races;
-                })
-                .catch(function (error) {
-                    console.log(`Error: ${error}`);
-                });
-        },
-        raceResultsV2(parent, args) {
             const { season, resultsLimit } = args;
             return axios
                 .get(`http://ergast.com/api/f1/${season}/results.json?limit=1000`)
@@ -83,11 +72,6 @@ const resolvers = {
                 .catch(function (error) {
                     console.log(error);
                 });
-        }
-    },
-    RaceResult: {
-        async results(parent) {
-            return await resultLoader.load(parent);
         }
     }
 };

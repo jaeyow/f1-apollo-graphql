@@ -77,17 +77,6 @@ const typeDefs = gql`
 
     type RaceResult {
         season: String
-        round: String
-        url:  String
-        raceName: String
-        Circuit: Circuit
-        date: String
-        time: String
-        results: [Result]
-    }
-
-    type RaceResultV2 {
-        season: String
         round: Int
         url:  String
         raceName: String
@@ -105,8 +94,7 @@ const typeDefs = gql`
     type Query {
         results: [Result]
         races: [Race]
-        raceResults(season: String!): [RaceResult]
-        raceResultsV2(season: String!, resultsLimit: Int): [RaceResultV2]
+        raceResults(season: String!, resultsLimit: Int): [RaceResult]
         seasons: [Season]
     }
 `;
