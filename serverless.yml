@@ -7,7 +7,6 @@ provider:
   runtime: nodejs12.x
 functions:
   graphql:
-    # this is formatted as <FILENAME>.<HANDLER>
     handler: graphql.graphqlHandler
     events:
     - http:
