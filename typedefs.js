@@ -51,6 +51,17 @@ const typeDefs = gql`
         FastestLap: FastestLap
     }
 
+    type QResult {
+        number: Int
+        position: Int
+        points: Float
+        Driver: Driver
+        Constructor: Constructor
+        Q1: String
+        Q2: String
+        Q3: String
+    }
+
     type Location {
         lat: String
         long: String
@@ -86,6 +97,17 @@ const typeDefs = gql`
         Results: [Result]
     }
 
+    type QualifyingResult {
+        season: String
+        round: Int
+        url:  String
+        raceName: String
+        Circuit: Circuit
+        date: String
+        time: String
+        QualifyingResults: [QResult]
+    }
+
     type Season {
         season: String
         url: String
@@ -96,6 +118,7 @@ const typeDefs = gql`
         races: [Race]
         raceResults(season: String!, resultsLimit: Int): [RaceResult]
         seasons: [Season]
+        qualifying(season: String!): [QualifyingResult] 
     }
 `;
 
