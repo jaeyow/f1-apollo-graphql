@@ -11,7 +11,7 @@
   "author": "Jose Reyes",
   "license": "ISC",
   "dependencies": {
-    "apollo-server": "^2.12.0",
+    "apollo-server": "^2.25.3",
     "apollo-server-lambda": "^2.12.0",
     "axios": "^0.19.2",
     "dataloader": "^2.0.0",
